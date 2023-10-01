@@ -29,9 +29,9 @@ pip install vexpr
     font-weight: bold;
 }
 
-/* .tab-contents figure {
-    margin-left: 10px;
-} */
+.tab-contents :last-child {
+    margin-bottom: 0;
+}
 
 .tabs {
     overflow: hidden;
@@ -41,7 +41,7 @@ pip install vexpr
     background-color:darkgray;
     float: left;
     text-align: center;
-    padding: 5px 50px;
+    padding: 5px 30px;
     border: 1px solid black;
 
     -webkit-user-select: none;
