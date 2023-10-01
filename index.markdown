@@ -161,6 +161,8 @@ print(expr)
 <h4>2. Transform into a faster Vexpr that would have been difficult to write directly</h4>
 
 {% highlight python %}
+import numpy as np
+
 example_inputs = dict(
     x1=np.random.randn(10, 5),
     x2=np.random.randn(10, 5),
@@ -294,11 +296,13 @@ print(expr)
 <h4>2. Transform into a faster Vexpr that would have been difficult to write directly</h4>
 
 {% highlight python %}
+import torch
+
 example_inputs = dict(
-    x1=np.random.randn(10, 5),
-    x2=np.random.randn(10, 5),
-    w1=np.array(0.7),
-    w2=np.array(0.3),
+    x1=torch.randn(10, 5),
+    x2=torch.randn(10, 5),
+    w1=torch.tensor(0.7),
+    w2=torch.tensor(0.3),
 )
 
 expr = vp.vectorize(expr, example_inputs)
@@ -334,10 +338,10 @@ print(expr)
 <h4>3. Evaluate the Vexpr, as you would if you were training w1 and w2</h4>
 
 {% highlight python %}
-inputs = dict(x1=np.random.randn(12, 5),
-              x2=np.random.randn(4, 5),
-              w1=np.array(0.6),
-              w2=np.array(0.4),)
+inputs = dict(x1=torch.randn(12, 5),
+              x2=torch.randn(4, 5),
+              w1=torch.tensor(0.6),
+              w2=torch.tensor(0.4),)
 print(vp.eval(expr, inputs))
 # tensor([[3.1750, 2.2383, 2.6217, 1.0710],
 #         [2.3972, 1.8493, 1.8987, 1.8038],
